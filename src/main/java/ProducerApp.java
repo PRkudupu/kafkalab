@@ -18,7 +18,7 @@ public class ProducerApp {
 
         try {
             for (int i = 0; i < 150; i++ )
-                myProducer.send(new ProducerRecord<String, String>("replicated_3_topic", Integer.toString(i),"MyMessage: "+ Integer.toString(i)));
+                myProducer.send(new ProducerRecord<String, String>("from_producer_topic", Integer.toString(i),"MyMessage: "+ Integer.toString(i)));
             // Thread.sleep(new Random(5000).nextLong()); // use if you want to randomize the time between record sends
         } catch (Exception e) {
             e.printStackTrace();
