@@ -44,7 +44,7 @@ kafka-topics.bat --describe --topic consumer-topic-01 --zookeeper localhost:2181
 kafka-topics.bat --describe --topic consumer-topic-02 --zookeeper localhost:2181
 
 5)RUN PRODUCER PERF TEST
-kafka-console-consumer.bat --bootstrap-server localhost:9090 --topic consumer-topic-01 --from-beginning
+kafka-producer-perf-test.bat --topic consumer-topic-01 --num-records 50 --record-size 1 --throughput 10 --producer-props bootstrap.servers=localhost:9090 key.serializer=org.apache.kafka.common.serialization.StringSerializer value.serializer=org.apache.kafka.common.serialization.StringSerializer
 
 6)RUN CONSUMER
 kafka-console-consumer.bat --bootstrap-server localhost:9090 --topic consumer-topic-01 --from-beginning
