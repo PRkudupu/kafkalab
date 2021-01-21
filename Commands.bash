@@ -1,3 +1,29 @@
+*******************************************************
+REPLICA LAB
+********************************************************
+cd C:\kafka\kafka_2.13-2.5.0\
+
+1) Run zookeeper
+.\bin\windows\Zookeeper-server-start.bat .\config\zookeeper.properties
+
+# CREATE 3 SERVER PROPERTIES FILEA AND START 3 BROKERS
+2)Run 3 brokers
+.\bin\windows\kafka-server-start.bat .\config\server-01.properties
+
+.\bin\windows\kafka-server-start.bat .\config\server-02.properties
+
+.\bin\windows\kafka-server-start.bat .\config\server-03.properties
+
+cd C:\kafka\kafka_2.13-2.5.0\bin\windows
+# CREATE TOPIC WITH REPLICATION FACTOR AS 3
+
+4)
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic replicated_3_topic
+
+#look for the topic
+5)
+kafka-topics.bat --describe --topic replicated_3_topic --zookeeper localhost:2181
+
 
 *******************************************************
 PRODUCER LAB
